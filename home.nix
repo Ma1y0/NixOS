@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./shell.nix
     ./kitty.nix
+    ./waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -75,45 +76,43 @@
     EDITOR = "nvim";
   };
 
-# Let Home Manager install and manage itself.
+  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-
-  
   programs.fastfetch = {
     enable = true;
     settings = {
       modules = [
-	"title"
-	"separator"
-	"os"
-	"host"
-      "kernel"
-      "uptime"
-      "packages"
-      "shell"
-      # "display"
-      "de"
-      "wm"
-      # "wmtheme"
-      "theme"
-      # "icons"
-      # "font"
-      # "cursor"
-      "terminal"
-      "terminalfont"
-      # "cpu"
-      # "gpu"
-      "memory"
-      "disk"
-      "localip"
-      "battery"
-      "poweradapter"
-      # "locale"
-      "break"
-      "colors"		
-		];
-	};
+        "title"
+        "separator"
+        "os"
+        "host"
+        "kernel"
+        "uptime"
+        "packages"
+        "shell"
+        # "display"
+        "de"
+        "wm"
+        # "wmtheme"
+        "theme"
+        # "icons"
+        # "font"
+        # "cursor"
+        "terminal"
+        "terminalfont"
+        # "cpu"
+        # "gpu"
+        "memory"
+        "disk"
+        "localip"
+        "battery"
+        "poweradapter"
+        # "locale"
+        "break"
+        "colors"
+      ];
+    };
   };
 
   # programs.zen-browser = {

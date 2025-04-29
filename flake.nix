@@ -1,48 +1,56 @@
 {
-	description = "My NixOS";
+  description = "My NixOS";
 
-	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-unstable";
-		home-manager.url = "github:nix-community/home-manager";
-		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-		stylix = {
-			url = "github:danth/stylix";
-			inputs = {
-				nixpkgs.follows = "nixpkgs";
-				home-manager.follows = "home-manager";
-			};
-		};
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
 
-		zen-browser = {
-			url = "github:0xc000022070/zen-browser-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-	};
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-	outputs = { self, nixpkgs, home-manager, ...}@inputs: 
-	let
-		system = "x86_64-linux";
-		lib = nixpkgs.lib;
-		pkgs = nixpkgs.legacyPackages.${system};
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
 
-	in {
-		nixosConfigurations = {
-			inherit system;
-			nixos = lib.nixosSystem {
-				modules = [ 
-					./configuration.nix 
-					inputs.stylix.nixosModules.stylix
-					home-manager.nixosModules.home-manager {
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.ma1y0 = ./home.nix;
-						home-manager.sharedModules = [
-							{ stylix.autoEnable = true; }
-						];
-					}
-				];
-			};
-		};
-	};
+    in
+    {
+      nixosConfigurations = {
+        inherit system;
+        nixos = lib.nixosSystem {
+          modules = [
+            ./configuration.nix
+            inputs.stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ma1y0 = ./home.nix;
+              home-manager.sharedModules = [
+                { stylix.autoEnable = true; }
+              ];
+            }
+          ];
+        };
+      };
+    };
 }

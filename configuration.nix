@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -52,13 +52,12 @@
   # For chormium-based apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland = {
-	enable = true;
-	xwayland.enable = true;
+    enable = true;
+    xwayland.enable = true;
   };
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -95,9 +94,12 @@
   users.users.ma1y0 = {
     isNormalUser = true;
     description = "Ma1y0";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -111,31 +113,36 @@
   nixpkgs.config.allowUnfree = true;
 
   # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Shell
-  environment.shells = with pkgs; [ bash zsh ];
+  environment.shells = with pkgs; [
+    bash
+    zsh
+  ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
-  
+
   # $ nix search wget
   environment.systemPackages = import ./packages.nix { inherit pkgs; };
-
 
   # Style
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
   stylix.image = pkgs.fetchurl {
-	url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
-	sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
+    url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
+    sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
   };
   stylix.cursor = {
-  	name = "Vanilla-DMZ";
-	package = pkgs.vanilla-dmz;
-	size = 24;
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 24;
   };
   stylix.fonts = {
     monospace = {
@@ -151,7 +158,6 @@
       name = "DejaVu Serif";
     };
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

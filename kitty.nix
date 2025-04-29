@@ -1,7 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
-programs.kitty = {
+  programs.kitty = {
     enable = true;
     shellIntegration.mode = "no-cursor";
     settings = {

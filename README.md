@@ -5,3 +5,4 @@
 - [ ] GC
 - [ ] Neovim
 - [ ] Notification service
+- [ ] Waybar style
