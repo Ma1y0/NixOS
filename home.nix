@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ 
+    ./shell.nix
+    ./kitty.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ma1y0";
@@ -71,37 +75,19 @@
     EDITOR = "nvim";
   };
 
-  # stylix = {
-  #  url = "github:danth/stylix";
-  #
-  #  inputs = {
-  #   nixpkgs.follows = "nixpkgs";
-  #   home-manager.follows = "home-manager";
-  #  };
-  # };
-
 # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.zsh = {
-	  enable = true;
-	  enableCompletion = true;
-	  autosuggestion.enable = true;
-	  syntaxHighlighting.enable = true;
 
-	  shellAliases = {
-		n = "fastfetch";
-	  };
-  };
-
+  
   programs.fastfetch = {
-	enable = true;
-	settings = {
-		modules = [
-			 "title"
-      "separator"
-      "os"
-      "host"
+    enable = true;
+    settings = {
+      modules = [
+	"title"
+	"separator"
+	"os"
+	"host"
       "kernel"
       "uptime"
       "packages"
@@ -130,11 +116,11 @@
 	};
   };
 
-  programs.zen-browser = {
-    enable = true;
-    policies = {
-      DisableAppUpdate = true;
-      DisableTelemetry = true;
-    };
-  };
+  # programs.zen-browser = {
+  #   enable = true;
+  #   policies = {
+  #     DisableAppUpdate = true;
+  #     DisableTelemetry = true;
+  #   };
+  # };
 }

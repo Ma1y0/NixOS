@@ -17,4 +17,12 @@ with pkgs; [
     wofi
     wl-clipboard-rs
     file
+    blueman
+    tree
+    # libgccjit
+    # binutils
+    # gnumake
+    fzf
+
+    chromium
 ]

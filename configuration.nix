@@ -132,6 +132,26 @@
 	url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
 	sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
   };
+  stylix.cursor = {
+  	name = "Vanilla-DMZ";
+	package = pkgs.vanilla-dmz;
+	size = 24;
+  };
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font Mono";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
