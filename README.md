@@ -1,6 +1,6 @@
 # To-do
 
-- [ ] Cursor
+- [x] Cursor
 - [ ] Stylix
 - [ ] GC
 - [ ] Neovim
