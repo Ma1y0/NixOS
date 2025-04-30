@@ -28,6 +28,8 @@ with pkgs;
   networkmanagerapplet
   libnl
   rust-analyzer
+  hyprpaper
+  pavucontrol
 
   chromium
 ]
