@@ -2,7 +2,9 @@
 
 - [x] Cursor
 - [ ] Stylix
-- [ ] GC
+- [ ] Auto GC
 - [ ] Neovim
 - [ ] Notification service
 - [ ] Waybar style
+- [ ] Hyprland
+- [ ] Auto update

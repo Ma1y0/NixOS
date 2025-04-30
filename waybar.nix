@@ -10,27 +10,28 @@
         modules-center = [ "hyprland/window" ];
         modules-right = [
           "network"
-	  "power-profiles-daemon"
+          "power-profiles-daemon"
           "pulseaudio"
-          "batery"
           "clock"
+          "battery"
         ];
 
         "hyprland/window" = {
           max-length = 50;
-	};
+        };
 
-	network = {
-	  format-wifi = "{essid} ({signalStrength}%) ";
-	  format-ethernet = "{ipaddr}/{cidr} ";
-	  tooltip-format = "{ifname} via {gwaddr} ";
-	  format-linked = "{ifname} (No IP) ";
-	  format-disconnected = "Disconnected ⚠";
-	  format-alt = "{ifname}: {ipaddr}/{cidr}";
-	};
+        network = {
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
 
         battery = {
           format = "{capacity}% {icon}";
+          format-plugged = "{capacity}% ";
           format-icons = [
             ""
             ""
@@ -51,6 +52,18 @@
               ""
               ""
             ];
+          };
+          on-click = "pavucontrol";
+        };
+        power-profiles-daemon = {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
           };
         };
       };

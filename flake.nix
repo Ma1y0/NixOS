@@ -48,6 +48,7 @@
               home-manager.sharedModules = [
                 { stylix.autoEnable = true; }
               ];
+              home-manager.extraSpecialArgs = { inherit inputs system; };
             }
           ];
         };

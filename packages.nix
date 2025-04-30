@@ -27,6 +27,7 @@ with pkgs;
   nixfmt-rfc-style
   networkmanagerapplet
   libnl
+  rust-analyzer
 
   chromium
 ]
