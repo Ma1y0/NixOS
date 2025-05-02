@@ -30,6 +30,9 @@ with pkgs;
   rust-analyzer
   hyprpaper
   pavucontrol
-
+  jetbrains.idea-ultimate
+  ripgrep
+  playerctl
+  zoxide
   chromium
 ]

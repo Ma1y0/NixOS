@@ -8,3 +8,4 @@
 - [ ] Waybar style
 - [ ] Hyprland
 - [ ] Auto update
+- [ ] Vs code
