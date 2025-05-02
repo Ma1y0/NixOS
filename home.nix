@@ -9,6 +9,7 @@
 {
   imports = [
     ./shell.nix
+    ./git.nix
     ./kitty.nix
     ./waybar.nix
     ./vs-code.nix
