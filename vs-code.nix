@@ -12,6 +12,9 @@
     ];
     profiles.default.userSettings = {
       "vim.useSystemClipboard" = true;
+      "vim.handleKeys" = {
+        "<C-p>" = false;
+      };
     };
   };
 }

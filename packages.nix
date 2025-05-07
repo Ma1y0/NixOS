@@ -35,4 +35,13 @@ with pkgs;
   playerctl
   zoxide
   chromium
+  fiji
+  python314
+  traceroute
+  dig
+  tcpdump
+  napari
+  qt5.qtwayland
+  qt6.qtwayland
+
 ]
