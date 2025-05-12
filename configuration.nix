@@ -141,7 +141,7 @@
     sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
   };
   stylix.cursor = {
-    name = "Vanilla-DMZ";
+    name = "Vanilla-DMZ-AA";
     package = pkgs.vanilla-dmz;
     size = 24;
   };

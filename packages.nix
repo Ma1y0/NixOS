@@ -27,7 +27,6 @@ with pkgs;
   nixfmt-rfc-style
   networkmanagerapplet
   libnl
-  rust-analyzer
   hyprpaper
   pavucontrol
   jetbrains.idea-ultimate
@@ -43,5 +42,8 @@ with pkgs;
   napari
   qt5.qtwayland
   qt6.qtwayland
-
+  rust-analyzer
+  lua-language-server
+  grim
+  slurp
 ]
