@@ -15,13 +15,13 @@
       }
     ];
     #   enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
-      shellAliases = {
-        n = "fastfetch";
-        gs = "git status";
-      };
+    shellAliases = {
+      n = "fastfetch";
+      gs = "git status";
+    };
 
     initExtra = ''
       source ~/.p10k.zsh

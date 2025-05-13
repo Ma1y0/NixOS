@@ -5,7 +5,7 @@
 - [ ] Auto GC
 - [ ] Neovim
 - [ ] Notification service
-- [ ] Waybar style
+- [x] Waybar style
 - [ ] Hyprland
 - [ ] Auto update
 - [ ] Vs code

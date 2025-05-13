@@ -49,6 +49,7 @@
                 { stylix.autoEnable = true; }
               ];
               home-manager.extraSpecialArgs = { inherit inputs system; };
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };

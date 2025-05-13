@@ -46,4 +46,5 @@ with pkgs;
   lua-language-server
   grim
   slurp
+  brightnessctl
 ]
