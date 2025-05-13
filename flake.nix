@@ -39,6 +39,21 @@
         nixos = lib.nixosSystem {
           modules = [
             ./configuration.nix
+            {
+              # auto-upgrade
+              system.autoUpgrade = {
+                enable = true;
+                flake = self.outPath;
+                flags = [
+                  "--update-input"
+                  "nixpkgs"
+                  "-L"
+                ];
+                dates = "02:00";
+                randomizedDelaySec = "45min";
+                allowReboot = true;
+              };
+            }
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
