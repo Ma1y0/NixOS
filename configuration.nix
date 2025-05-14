@@ -140,10 +140,12 @@
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-  stylix.image = pkgs.fetchurl {
-    url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
-    sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
-  };
+  # stylix.image = pkgs.fetchurl {
+  #   url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
+  #   sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
+  # };
+  # stylix.imageScalingMode = "fit";
+  stylix.image = ./gruvbox-nix.png;
   stylix.cursor = {
     name = "Vanilla-DMZ-AA";
     package = pkgs.vanilla-dmz;
