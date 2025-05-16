@@ -9,3 +9,4 @@
 - [ ] Hyprland
 - [ ] Auto update
 - [ ] Vs code
+- [ ] Disable stylix on systemd logs

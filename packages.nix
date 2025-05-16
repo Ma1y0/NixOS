@@ -47,4 +47,5 @@ with pkgs;
   grim
   slurp
   brightnessctl
+  wineWowPackages.waylandFull
 ]

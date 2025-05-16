@@ -11,6 +11,7 @@
       arrterian.nix-env-selector
     ];
     profiles.default.userSettings = {
+      "python.analysis.typeCheckingMode" = "standard";
       "vim.useSystemClipboard" = true;
       "vim.handleKeys" = {
         "<C-p>" = false;
