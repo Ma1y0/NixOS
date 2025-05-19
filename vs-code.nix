@@ -12,6 +12,7 @@
     ];
     profiles.default.userSettings = {
       "python.analysis.typeCheckingMode" = "standard";
+      "python.analysis.autoImportCompletions" = true;
       "vim.useSystemClipboard" = true;
       "vim.handleKeys" = {
         "<C-p>" = false;
