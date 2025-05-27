@@ -14,7 +14,10 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
+  # Kernel version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 7;
@@ -95,6 +98,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  security.pam.loginLimits = [
+  {
+    domain = "*";
+    type = "-";
+    item = "memlock";
+    value = "unlimited";
+  }
+];
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ma1y0 = {
     isNormalUser = true;
@@ -167,7 +180,7 @@
   };
 
   virtualisation.docker.enable = true;
-  
+  documentation.dev.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -17,6 +17,20 @@
       "vim.handleKeys" = {
         "<C-p>" = false;
       };
+      "vim.normalModeKeyBindingsNonRecursive" = [
+        {
+          "before" = [
+            "<space>"
+            "f"
+            "f"
+          ];
+          "after" = [
+            "<cmd>"
+            "workbench.action.quickOpen"
+            "<cr>"
+          ];
+        }
+      ];
     };
   };
 }

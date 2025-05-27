@@ -14,7 +14,6 @@
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
-    #   enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -23,7 +22,7 @@
       gs = "git status";
     };
 
-    initExtra = ''
+    initContent = ''
       source ~/.p10k.zsh
     '';
   };

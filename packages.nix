@@ -48,4 +48,7 @@ with pkgs;
   slurp
   brightnessctl
   wineWowPackages.waylandFull
+  man-pages
+  man-pages-posix
+  android-studio
 ]
