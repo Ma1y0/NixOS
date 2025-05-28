@@ -51,7 +51,6 @@
                 ];
                 dates = "02:00";
                 randomizedDelaySec = "45min";
-                allowReboot = true;
               };
             }
             inputs.stylix.nixosModules.stylix
