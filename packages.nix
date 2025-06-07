@@ -51,4 +51,6 @@ with pkgs;
   man-pages
   man-pages-posix
   android-studio
+  nix-prefetch-github
+  nix-index
 ]

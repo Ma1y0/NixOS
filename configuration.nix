@@ -100,14 +100,13 @@
   # services.xserver.libinput.enable = true;
 
   security.pam.loginLimits = [
-  {
-    domain = "*";
-    type = "-";
-    item = "memlock";
-    value = "unlimited";
-  }
-];
-
+    {
+      domain = "*";
+      type = "-";
+      item = "memlock";
+      value = "unlimited";
+    }
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ma1y0 = {
@@ -124,6 +123,46 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    freetype
+    dbus
+    xcb-util-cursor
+    xorg.xcbutil
+    xorg.xcbutilimage
+    xorg.xcbutilkeysyms
+    xorg.xcbutilrenderutil
+    xorg.xcbutilwm
+    xorg.libxcb
+    libxkbcommon
+    qt6.qtwayland
+    glibc
+    qt6.qtbase
+    qt6.qtsvg
+    qt6.qtwayland
+    libxkbcommon
+    xorg.libX11
+    xorg.libxcb
+    xorg.libXext
+    xorg.libXrender
+    xorg.libXi
+    xorg.libXfixes
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXinerama
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXtst
+    xorg.libXxf86vm
+    xorg.libdmx
+    mesa
+    libGL
+    libGLU
+    icu
+    fontconfig
+  ];
 
   # Steam
   programs.steam.enable = true;
@@ -182,7 +221,6 @@
 
   virtualisation.docker.enable = true;
   documentation.dev.enable = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
