@@ -1,12 +1,13 @@
 # To-do
 
 - [x] Cursor
-- [ ] Stylix
+- [x] Stylix
 - [ ] Auto GC
 - [ ] Neovim
-- [ ] Notification service
+- [x] Notification service
 - [x] Waybar style
-- [ ] Hyprland
-- [ ] Auto update
+- [x] Hyprland
+- [x] Auto rebuild
+- [ ] Auto update flake.lock
 - [ ] Vs code
 - [ ] Disable stylix on systemd logs
