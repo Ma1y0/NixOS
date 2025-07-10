@@ -54,4 +54,6 @@ with pkgs;
   nix-prefetch-github
   zip
   unzip
+  undollar
+  path-of-building
 ]

@@ -32,6 +32,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.bat
     pkgs.hello
     inputs.zen-browser.packages."${system}".twilight
   ];
@@ -111,12 +112,4 @@
       ];
     };
   };
-
-  # programs.zen-browser = {
-  #   enable = true;
-  #   policies = {
-  #     DisableAppUpdate = true;
-  #     DisableTelemetry = true;
-  #   };
-  # };
 }

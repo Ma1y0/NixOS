@@ -20,6 +20,7 @@
     shellAliases = {
       n = "fastfetch";
       gs = "git status";
+      cat = "bat";
     };
 
     initContent = ''
