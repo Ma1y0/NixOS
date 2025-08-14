@@ -1,5 +1,6 @@
 # To-do
 
+- [ ] Fix shell startup issues (maybe try fish)
 - [x] Cursor
 - [x] Stylix
 - [ ] Auto GC

@@ -42,7 +42,6 @@ with pkgs;
   napari
   qt5.qtwayland
   qt6.qtwayland
-  rust-analyzer
   lua-language-server
   grim
   slurp
@@ -56,4 +55,9 @@ with pkgs;
   unzip
   undollar
   path-of-building
+  obsidian
+  unixtools.xxd
+  ascii
+  bat
+  eza
 ]

@@ -21,10 +21,17 @@
       n = "fastfetch";
       gs = "git status";
       cat = "bat";
+      ls = "eza";
+      ll = "eza -l --icons=auto";
+      la = "eza -la --icons=auto";
     };
 
     initContent = ''
+      # zmodload zsh/zprof
+
       source ~/.p10k.zsh
+
+      # zprof
     '';
   };
   programs.zoxide.enable = true;
