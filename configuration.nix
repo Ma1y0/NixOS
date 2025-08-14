@@ -219,6 +219,9 @@
     };
   };
 
+  # Kernel logs
+  stylix.targets.console.enable = false;
+
   virtualisation.docker.enable = true;
   documentation.dev.enable = true;
 
