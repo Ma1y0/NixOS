@@ -39,7 +39,7 @@ with pkgs;
   traceroute
   dig
   tcpdump
-  napari
+  # napari
   qt5.qtwayland
   qt6.qtwayland
   lua-language-server
@@ -60,4 +60,5 @@ with pkgs;
   ascii
   bat
   eza
+  fd
 ]

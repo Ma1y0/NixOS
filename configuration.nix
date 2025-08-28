@@ -126,6 +126,7 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    nss
     glib
     freetype
     dbus
@@ -136,6 +137,13 @@
     xorg.xcbutilrenderutil
     xorg.xcbutilwm
     xorg.libxcb
+    xorg.libSM
+    xorg.libICE
+    xorg.libXrender
+    xorg.libXext
+    xorg.libX11
+    libz
+    libpulseaudio
     libxkbcommon
     qt6.qtwayland
     glibc
