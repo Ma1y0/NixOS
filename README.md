@@ -1,7 +1,7 @@
 # To-do
 
 - [ ] Fix shell startup issues (maybe try fish)
-- [x] Cursor
+- [x] Cursor fix
 - [x] Stylix
 - [ ] Auto GC
 - [ ] Neovim
@@ -11,4 +11,6 @@
 - [x] Auto rebuild
 - [ ] Auto update flake.lock
 - [ ] Vs code
-- [ ] Disable stylix on systemd logs
+- [x] Disable stylix on kernel logs
+- [ ] Day/night cycle
+- [ ] Return to tmux

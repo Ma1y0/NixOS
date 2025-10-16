@@ -33,7 +33,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.hello
     inputs.zen-browser.packages."${system}".twilight
   ];
 

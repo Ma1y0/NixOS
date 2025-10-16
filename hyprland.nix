@@ -5,37 +5,36 @@
     monitor = ",preferred,auto,1.2";
     xwayland.force_zero_scaling = true;
     "$mod" = "SUPER";
-    bind =
-      [
-        "$mod, Q, exec, kitty"
-        "$mod, C, killactive,"
-        "$mod, V, togglefloating,"
-        "$mod, F, fullscreen"
-        "$mod, SPACE, exec, wofi --show drun"
-        ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
+    bind = [
+      "$mod, Q, exec, kitty"
+      "$mod, C, killactive,"
+      "$mod, V, togglefloating,"
+      "$mod, F, fullscreen"
+      "$mod, SPACE, exec, wofi --show drun"
+      ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
 
-        # Vi-like movement
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
-      ]
-      ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              ws = i + 1;
-            in
-            [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          ) 9
-        )
-      );
+      # Vi-like movement
+      "$mod, H, movefocus, l"
+      "$mod, L, movefocus, r"
+      "$mod, K, movefocus, u"
+      "$mod, J, movefocus, d"
+    ]
+    ++ (
+      # workspaces
+      # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+      builtins.concatLists (
+        builtins.genList (
+          i:
+          let
+            ws = i + 1;
+          in
+          [
+            "$mod, code:1${toString i}, workspace, ${toString ws}"
+            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        ) 9
+      )
+    );
     bindm = [
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"

@@ -61,4 +61,11 @@ with pkgs;
   bat
   eza
   fd
+  nix-init
+  imagemagick
+  audacity
+  stremio
+  nmap
+  megasync
+  ffmpeg
 ]

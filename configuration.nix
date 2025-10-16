@@ -55,8 +55,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # For chormium-based apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -64,6 +64,15 @@
     enable = true;
     xwayland.enable = true;
   };
+
+   programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  # Enable the gnome-keyring secrets vault. 
+  # Will be exposed through DBus to programs willing to store secrets.
+  services.gnome.gnome-keyring.enable = true;
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -115,62 +124,75 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
-      #  thunderbird
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    nss
-    glib
-    freetype
-    dbus
-    xcb-util-cursor
-    xorg.xcbutil
-    xorg.xcbutilimage
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    xorg.xcbutilwm
-    xorg.libxcb
-    xorg.libSM
-    xorg.libICE
-    xorg.libXrender
-    xorg.libXext
-    xorg.libX11
-    libz
-    libpulseaudio
-    libxkbcommon
-    qt6.qtwayland
-    glibc
-    qt6.qtbase
-    qt6.qtsvg
-    qt6.qtwayland
-    libxkbcommon
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXext
-    xorg.libXrender
-    xorg.libXi
-    xorg.libXfixes
-    xorg.libXcursor
-    xorg.libXrandr
-    xorg.libXinerama
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXtst
-    xorg.libXxf86vm
-    xorg.libdmx
-    mesa
-    libGL
-    libGLU
-    icu
-    fontconfig
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
   ];
+
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  #   gtk4
+  #   gtk3
+  #   gtk2
+  #   nss
+  #   nspr
+  #   expat
+  #   alsa-lib
+  #   krb5
+  #   glib
+  #   freetype
+  #   dbus
+  #   xcb-util-cursor
+  #   xorg.xcbutil
+  #   xorg.xcbutilimage
+  #   xorg.xcbutilkeysyms
+  #   xorg.xcbutilrenderutil
+  #   xorg.xcbutilwm
+  #   xorg.libxcb
+  #   xorg.libSM
+  #   xorg.libICE
+  #   xorg.libXrender
+  #   xorg.libXext
+  #   xorg.libX11
+  #   libz
+  #   libpulseaudio
+  #   libxkbcommon
+  #   libsForQt5.full
+  #   qt6.qtwayland
+  #   libsForQt5.qt5.qtwayland
+  #   glibc
+  #   qt6.qtbase
+  #   qt6.qtsvg
+  #   qt6.qtwayland
+  #   libxkbcommon
+  #   xorg.libX11
+  #   xorg.libxcb
+  #   xorg.libXext
+  #   xorg.libXrender
+  #   xorg.libXi
+  #   xorg.libXfixes
+  #   xorg.libXcursor
+  #   xorg.libXrandr
+  #   xorg.libXinerama
+  #   xorg.libXcomposite
+  #   xorg.libXdamage
+  #   xorg.libXtst
+  #   xorg.libXxf86vm
+  #   xorg.libdmx
+  #   mesa
+  #   libGL
+  #   libGLU
+  #   icu
+  #   fontconfig
+  # ];
 
   # Steam
   programs.steam.enable = true;
@@ -200,13 +222,17 @@
   # Style
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   # stylix.image = pkgs.fetchurl {
   #   url = "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png";
   #   sha256 = "19vdqnvbg761n7kjgwk8q8zm69235xqdrhli52svfbwmfl06b1mn";
   # };
   # stylix.imageScalingMode = "fit";
-  stylix.image = ./gruvbox-nix.png;
+  stylix.image = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/jellyfish.jpg";
+    sha256 = "03z75hpgmdn5mb4821mbffvjdnx1c18nfhnc0s7ls2pg9dfnrvry";
+  };
   stylix.cursor = {
     name = "Vanilla-DMZ-AA";
     package = pkgs.vanilla-dmz;
