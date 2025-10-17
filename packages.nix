@@ -29,7 +29,7 @@ with pkgs;
   libnl
   hyprpaper
   pavucontrol
-  jetbrains.idea-ultimate
+  # jetbrains.idea-ultimate
   ripgrep
   playerctl
   zoxide
@@ -49,7 +49,7 @@ with pkgs;
   wineWowPackages.waylandFull
   man-pages
   man-pages-posix
-  android-studio
+  # android-studio
   nix-prefetch-github
   zip
   unzip
@@ -66,6 +66,5 @@ with pkgs;
   audacity
   stremio
   nmap
-  megasync
   ffmpeg
 ]

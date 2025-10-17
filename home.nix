@@ -10,6 +10,7 @@
   imports = [
     ./zsh.nix
     ./fish.nix
+    ./tmux.nix
     ./git.nix
     ./kitty.nix
     ./waybar.nix
