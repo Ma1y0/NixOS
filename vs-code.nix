@@ -11,9 +11,9 @@
       arrterian.nix-env-selector
     ];
     profiles.default.userSettings = {
-      "github.copilot.enable" = {
-        "*" = false;
-      };
+      # "github.copilot.enable" = {
+      #   "*" = false;
+      # };
       "python.analysis.typeCheckingMode" = "standard";
       "python.analysis.autoImportCompletions" = true;
       "[python]" = {

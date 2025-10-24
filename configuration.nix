@@ -117,10 +117,12 @@
     }
   ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.fish.enable = true;
+
   users.users.ma1y0 = {
     isNormalUser = true;
     description = "Ma1y0";
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -210,8 +212,9 @@
   environment.shells = with pkgs; [
     bash
     zsh
+    fish
   ];
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
   programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:

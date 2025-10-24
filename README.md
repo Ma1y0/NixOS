@@ -14,3 +14,4 @@
 - [x] Disable stylix on kernel logs
 - [ ] Day/night cycle
 - [ ] Return to tmux
+- [ ] Nvim debugging
