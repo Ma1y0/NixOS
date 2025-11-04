@@ -10,26 +10,19 @@ with pkgs;
   kitty
   gh
   xorg.xeyes
-  #    (waybar.overrideAttrs (oldAttrs: {
-  # mesonFlags = oldAttr.mesonFlags ++ [ "-Dexperimental=true" ];
-  # })
-  #    )
   waybar
   wofi
   wl-clipboard-rs
   file
   blueman
   tree
-  # libgccjit
-  # binutils
-  # gnumake
+  gnumake
   fzf
   nixfmt-rfc-style
   networkmanagerapplet
   libnl
   hyprpaper
   pavucontrol
-  # jetbrains.idea-ultimate
   ripgrep
   playerctl
   zoxide
@@ -39,7 +32,6 @@ with pkgs;
   traceroute
   dig
   tcpdump
-  # napari
   qt5.qtwayland
   qt6.qtwayland
   lua-language-server
@@ -54,8 +46,6 @@ with pkgs;
   zip
   unzip
   undollar
-  path-of-building
-  obsidian
   unixtools.xxd
   ascii
   bat
@@ -64,7 +54,8 @@ with pkgs;
   nix-init
   imagemagick
   audacity
-  stremio
   nmap
   ffmpeg
+  kdePackages.qtsvg
+  kdePackages.dolphin
 ]

@@ -7,32 +7,13 @@
     shellAliases = {
       n = "fastfetch";
       gs = "git status";
+      gaa = "git add -A";
+      gc = "git commit";
       cat = "bat";
       ls = "eza";
       ll = "eza -lh --icons=auto";
       la = "eza -lah --icons=auto";
     };
-
-    functions = {
-      mkcd = ''
-        function mkcd --description "Create a directory and change into it"
-          if test -z "$argv"
-            echo "Usage: mkcd <directory_name>"
-            return 1
-          end
-          mkdir -p "$argv[1]"
-          cd "$argv[1]"
-        end
-      '';
-    };
-
-    # functions.fish_prompt = ''
-    #   	     function fish_prompt
-    #   	     echo <><
-    #   	     echo \n
-    #   	echo $PWD '>'
-    #   	     end
-    #   	   '';
 
     # Start tmux
     interactiveShellInit = ''
@@ -40,5 +21,17 @@
         tmux attach -t main || tmux new -s main
       end
     '';
+
+    functions = {
+      fish_prompt = builtins.readFile ./fish_prompt.fish;
+      mkcd = ''
+        mkdir -p $argv[1]
+        and cd $argv[1]
+      '';
+    };
   };
+
+  programs.zoxide.enable = true;
+  programs.zoxide.enableFishIntegration = true;
+
 }

@@ -2,8 +2,8 @@
   description = "My NixOS";
 
   inputs = {
-    nixpkgs.url = "github:ma1y0/nixpkgs/master";
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:ma1y0/nixpkgs/master";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 

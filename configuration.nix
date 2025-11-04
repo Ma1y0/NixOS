@@ -55,19 +55,25 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.settings.General.DisplayServer = "wayland";
+  services.desktopManager.plasma6.enable = true;
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    elisa
+    kate
+  ];
 
   # For chormium-based apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-  };
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
   };
 
   # Enable the gnome-keyring secrets vault.
@@ -102,8 +108,10 @@
     #media-session.enable = true;
   };
 
+  services.blueman.enable = true;
+
   # AppImage
-  programs.appimage.enable = true;
+  # programs.appimage.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -134,10 +142,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
 
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
@@ -214,7 +218,7 @@
     zsh
     fish
   ];
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
