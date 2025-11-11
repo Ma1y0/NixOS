@@ -56,6 +56,15 @@ with pkgs;
   audacity
   nmap
   ffmpeg
+  lsof
   kdePackages.qtsvg
   kdePackages.dolphin
+  # Podman
+  dive
+  podman-tui
+  podman-compose
+  xorg.xhost
+  openssl
+
+  tailscale
 ]

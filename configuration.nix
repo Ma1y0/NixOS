@@ -134,7 +134,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
+      "podman"
     ];
     packages = with pkgs; [
     ];
@@ -263,7 +263,23 @@
   # Kernel logs
   stylix.targets.console.enable = false;
 
-  virtualisation.docker.enable = true;
+  # Virtualization
+  # virtualisation.docker.enable = true;
+  virtualisation.containers.enable = true;
+   virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  services.tailscale.enable = true;
+
   documentation.dev.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are

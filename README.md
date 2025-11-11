@@ -19,3 +19,4 @@
 - [ ] add !! to fish
 - [ ] Modular structure
 - [ ] Clean up fish prompt
+- [ ] Fish prompt doesn't print in a new instance
