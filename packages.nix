@@ -65,6 +65,7 @@ with pkgs;
   podman-compose
   xorg.xhost
   openssl
+  font-awesome
 
   tailscale
 ]

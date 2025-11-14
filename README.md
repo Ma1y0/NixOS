@@ -15,7 +15,6 @@
 - [ ] Day/night cycle
 - [ ] Return to tmux
 - [ ] Nvim debugging
-- [ ] Use stable nixpkgs for gdm or switch to something with less deps
 - [ ] add !! to fish
 - [ ] Modular structure
 - [ ] Clean up fish prompt
