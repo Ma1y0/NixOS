@@ -2,16 +2,19 @@
   description = "My NixOS";
 
   inputs = {
+    # Nixpkgs
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Home-manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Styles
     stylix = {
       url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Editor
@@ -37,7 +40,6 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
@@ -53,7 +55,7 @@
               home-manager.users.ma1y0 = ./home.nix;
               home-manager.sharedModules = [
                 { stylix.autoEnable = true; }
-		inputs.nixvim.homeManagerModules.nixvim
+                inputs.nixvim.homeManagerModules.nixvim
               ];
               home-manager.extraSpecialArgs = { inherit inputs system; };
               home-manager.backupFileExtension = "backup";

@@ -4,7 +4,6 @@ with pkgs;
 [
   wget
   git
-  neovim
   fastfetch
   htop
   kitty

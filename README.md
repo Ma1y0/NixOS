@@ -1,6 +1,6 @@
 # To-do
 
-- [ ] Fix shell startup issues (maybe try fish)
+- [x] Fix shell startup issues (maybe try fish)
 - [x] Cursor fix
 - [x] Stylix
 - [ ] Auto GC
@@ -13,9 +13,10 @@
 - [ ] Vs code
 - [x] Disable stylix on kernel logs
 - [ ] Day/night cycle
-- [ ] Return to tmux
+- [x] Return to tmux
 - [ ] Nvim debugging
 - [ ] add !! to fish
 - [ ] Modular structure
 - [ ] Clean up fish prompt
-- [ ] Fish prompt doesn't print in a new instance
+- [ ] Fish prompt doesn't print in a new instance on the first line
+- [ ] Investigate the man-cache problem during rebuilds
