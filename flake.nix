@@ -2,7 +2,6 @@
   description = "My NixOS";
 
   inputs = {
-    # nixpkgs.url = "github:ma1y0/nixpkgs/master";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +14,13 @@
       };
     };
 
+    # Editor
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,20 +45,6 @@
         nixos = lib.nixosSystem {
           modules = [
             ./configuration.nix
-            {
-              # auto-upgrade
-              system.autoUpgrade = {
-                enable = true;
-                flake = self.outPath;
-                flags = [
-                  "--update-input"
-                  "nixpkgs"
-                  "-L"
-                ];
-                dates = "02:00";
-                randomizedDelaySec = "45min";
-              };
-            }
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
@@ -61,6 +53,7 @@
               home-manager.users.ma1y0 = ./home.nix;
               home-manager.sharedModules = [
                 { stylix.autoEnable = true; }
+		inputs.nixvim.homeManagerModules.nixvim
               ];
               home-manager.extraSpecialArgs = { inherit inputs system; };
               home-manager.backupFileExtension = "backup";

@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   programs.git = {
     enable = true;
-    userName = "Ma1y0";
-    userEmail = "matyas.barr@gmail.com";
-    extraConfig.init.defaultBranch = "main";
+    settings = {
+      user = {
+        name = "Ma1y0";
+        email = "matyas.barr@gmail.com";
+      };
+      init.defaultBranch = "main";
+    };
   };
 }
