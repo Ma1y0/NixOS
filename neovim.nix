@@ -48,6 +48,8 @@
           };
         };
       };
+      # Lualine
+      lualine.enable = true;
       # Undotree
       undotree.enable = true;
       # Highlighting
