@@ -19,7 +19,6 @@
     };
 
     clipboard.register = "unnamedplus"; # Use the system clipboard
-    lsp.inlayHints.enable = true; # Isn't part of the lsp plugin
 
     plugins = {
       # Helper
@@ -141,6 +140,11 @@
       blink-cmp = {
         enable = true;
         settings = {
+          completion.documentation.auto_show = true;
+          signature.enabled = true;
+          completion.documentation.window.border = "rounded";
+          completion.menu.border = "rounded";
+          signature.window.border = "rounded";
           keymap = {
             preset = "enter";
 
@@ -182,8 +186,24 @@
     };
 
     extraConfigLua = ''
+      -- Aliases, bacuse I can't type
       vim.cmd([[cabbrev W w]])
       vim.cmd([[cabbrev Wqa wqa]])
+
+      -- Make pop-ups more readeble
+      vim.diagnostic.config({
+        float = {
+          border = "rounded",
+          max_width = 80,
+          max_height = 20,
+          focusable = true,
+          style = "minimal",
+          source = "always",
+        }
+      })
+
+      -- Lsp hover border (is there a nix wat to do this?)
+      vim.o.winborder = 'rounded'
 
       -- LSP Restart keymap
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" })
