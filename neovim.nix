@@ -34,9 +34,9 @@
         extensions.fzy-native.enable = true; # Testing the author claims it has better algorithm
         keymaps = {
           "<leader>ff" = {
-            action = "git_files";
+            action = "find_files";
             options = {
-              desc = "Search Git Files";
+              desc = "Fuzzy find files in the cwd";
             };
           };
           "<leader>fg" = {
