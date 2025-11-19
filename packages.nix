@@ -65,6 +65,7 @@ with pkgs;
   xorg.xhost
   openssl
   font-awesome
+  spotify
 
   tailscale
 ]

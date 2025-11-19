@@ -4,7 +4,7 @@
 - [x] Cursor fix
 - [x] Stylix
 - [ ] Auto GC
-- [ ] Neovim
+- [x] Neovim
 - [x] Notification service
 - [x] Waybar style
 - [x] Hyprland
@@ -20,3 +20,4 @@
 - [ ] Clean up fish prompt
 - [ ] Fish prompt doesn't print in a new instance on the first line
 - [ ] Investigate the man-cache problem during rebuilds
+- [ ] A script that runs once a month and archives ~/Downloads/

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.nixvim = {
@@ -19,6 +19,12 @@
     };
 
     clipboard.register = "unnamedplus"; # Use the system clipboard
+
+    diagnostics.settings.config = {
+      virtual_text = true;
+      underline = true;
+      signs = true;
+    };
 
     plugins = {
       # Helper
