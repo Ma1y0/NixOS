@@ -24,6 +24,14 @@
       virtual_text = true;
       underline = true;
       signs = true;
+      float = {
+        border = "rounded";
+        max_width = 80;
+        max_height = 20;
+        focusable = true;
+        style = "minimal";
+        source = "always";
+      };
     };
 
     plugins = {
@@ -195,18 +203,6 @@
       -- Aliases, bacuse I can't type
       vim.cmd([[cabbrev W w]])
       vim.cmd([[cabbrev Wqa wqa]])
-
-      -- Make pop-ups more readeble
-      vim.diagnostic.config({
-        float = {
-          border = "rounded",
-          max_width = 80,
-          max_height = 20,
-          focusable = true,
-          style = "minimal",
-          source = "always",
-        }
-      })
 
       -- Lsp hover border (is there a nix wat to do this?)
       vim.o.winborder = 'rounded'

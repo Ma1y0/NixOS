@@ -55,7 +55,7 @@
               home-manager.users.ma1y0 = ./home.nix;
               home-manager.sharedModules = [
                 { stylix.autoEnable = true; }
-                inputs.nixvim.homeManagerModules.nixvim
+                inputs.nixvim.homeModules.nixvim
               ];
               home-manager.extraSpecialArgs = { inherit inputs system; };
               home-manager.backupFileExtension = "backup";

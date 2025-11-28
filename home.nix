@@ -13,7 +13,7 @@
     ./git.nix
     ./kitty.nix
     ./waybar.nix
-    ./vs-code.nix
+    # ./vs-code.nix
     ./hyprland.nix
     ./neovim.nix
   ];

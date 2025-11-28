@@ -66,6 +66,8 @@ with pkgs;
   openssl
   font-awesome
   spotify
+  mangowc
+  jq
 
   tailscale
 ]
