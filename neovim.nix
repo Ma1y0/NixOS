@@ -17,22 +17,32 @@
       scrolloff = 10; # Scrolls 10 lines in front of the cursor
       undofile = true;
     };
+    #
+    #     diagnostics.settings.config = {
+    #   virtual_text = true;
+    #   underline = true;
+    #   signs = true;
+    #   float = {
+    #     border = "rounded";
+    #     max_width = 80;
+    #     max_height = 20;
+    #     focusable = true;
+    #     style = "minimal";
+    #     source = "always";
+    #   };
+    # };
+    #
 
     clipboard.register = "unnamedplus"; # Use the system clipboard
 
-    diagnostics.settings.config = {
-      virtual_text = true;
-      underline = true;
-      signs = true;
-      float = {
-        border = "rounded";
-        max_width = 80;
-        max_height = 20;
-        focusable = true;
-        style = "minimal";
-        source = "always";
-      };
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "-";
+        action = "<cmd>Oil<CR>";
+        options.desc = "Open parent directory";
+      }
+    ];
 
     plugins = {
       # Helper
@@ -63,6 +73,16 @@
       };
       # Lualine
       lualine.enable = true;
+      # Oil
+      oil = {
+        enable = true;
+        settings = {
+          skip_confirm_for_simple_edits = true;
+          natural_order = true;
+          show_hidden = true;
+          columns = [ "icon" ];
+        };
+      };
       # Undotree
       undotree.enable = true;
       # Highlighting
@@ -73,7 +93,14 @@
       lsp = {
         enable = true;
         servers = {
-          clangd.enable = true;
+          # clangd = {
+          #   enable = true;
+          #   filetypes = [
+          #     "c"
+          #     "cpp"
+          #   ];
+          #   rootMarkers = [ "compile_commands.json" ];
+          # };
           cmake.enable = true;
           ts_ls.enable = true;
           nil_ls.enable = true; # A nix ls
@@ -84,10 +111,19 @@
           };
           ocamllsp.enable = true;
           ty.enable = true; # Python
-          tailwindcss.enable = true;
+          tailwindcss = {
+            enable = true;
+            filetypes = [
+              "html"
+              "typescriptreact"
+              "javascriptreact"
+              "typescript"
+            ];
+          };
           fish_lsp.enable = true;
           elixirls.enable = true;
           bashls.enable = true;
+          lua_ls.enable = true;
         };
 
         keymaps = {
@@ -200,24 +236,30 @@
     };
 
     extraConfigLua = ''
-      -- Aliases, bacuse I can't type
-      vim.cmd([[cabbrev W w]])
-      vim.cmd([[cabbrev Wqa wqa]])
+          vim.lsp.config["clangd"] = {
+        cmd = { "clangd" },
+        filetypes = { "c", "cpp" },
+      }
 
-      -- Lsp hover border (is there a nix wat to do this?)
-      vim.o.winborder = 'rounded'
+      vim.lsp.enable("clangd")
+            -- Aliases, because I can't type
+            vim.cmd([[cabbrev W w]])
+            vim.cmd([[cabbrev Wqa wqa]])
 
-      -- LSP Restart keymap
-      vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" })
+            -- Lsp hover border (is there a nix wat to do this?)
+            vim.o.winborder = 'rounded'
 
-      -- Visual on yanking (bet there is nixvim way to add autogroups)
-      vim.api.nvim_create_autocmd("TextYankPost", {
-        desc = "Highlight when yanking (copying) text",
-        group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-        callback = function()
-          vim.highlight.on_yank()
-        end,
-      })
+            -- LSP Restart keymap
+            vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" })
+
+            -- Visual on yanking (bet there is nixvim way to add autogroups)
+            vim.api.nvim_create_autocmd("TextYankPost", {
+              desc = "Highlight when yanking (copying) text",
+              group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+              callback = function()
+                vim.highlight.on_yank()
+              end,
+            })
     '';
   };
 }

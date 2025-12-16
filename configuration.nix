@@ -144,7 +144,11 @@
     # Install firefox.
     programs.firefox.enable = true;
 
-    # programs.nix-ld.enable = true;
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = [
+      pkgs.libcxx
+      pkgs.glibc
+    ];
     # programs.nix-ld.libraries = with pkgs; [
     #   gtk4
     #   gtk3

@@ -68,6 +68,10 @@ with pkgs;
   spotify
   mangowc
   jq
+  zed-editor-fhs
+  neovim
+  napari
+  adwaita-icon-theme
 
   tailscale
 ]

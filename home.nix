@@ -39,6 +39,14 @@
 
   services.dunst.enable = true;
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -99,7 +107,7 @@
         # "cursor"
         "terminal"
         "terminalfont"
-        # "cpu"
+        "cpu"
         # "gpu"
         "memory"
         "disk"
