@@ -235,31 +235,52 @@
 
     };
 
+    # Fix this mess
     extraConfigLua = ''
-          vim.lsp.config["clangd"] = {
-        cmd = { "clangd" },
-        filetypes = { "c", "cpp" },
-      }
+                      vim.lsp.config["clangd"] = {
+                    cmd = { "clangd" },
+                    filetypes = { "c", "cpp" },
+                  }
 
-      vim.lsp.enable("clangd")
-            -- Aliases, because I can't type
-            vim.cmd([[cabbrev W w]])
-            vim.cmd([[cabbrev Wqa wqa]])
 
-            -- Lsp hover border (is there a nix wat to do this?)
-            vim.o.winborder = 'rounded'
 
-            -- LSP Restart keymap
-            vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" })
+                  vim.lsp.enable("clangd")
 
-            -- Visual on yanking (bet there is nixvim way to add autogroups)
-            vim.api.nvim_create_autocmd("TextYankPost", {
-              desc = "Highlight when yanking (copying) text",
-              group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-              callback = function()
-                vim.highlight.on_yank()
-              end,
-            })
+                        -- No, thank you
+                        
+            local autocmd = vim.api.nvim_create_autocmd
+      local augroup = vim.api.nvim_create_augroup
+
+      local general = augroup("General Settings", { clear = true })
+
+      -- Disable auto comment on a new line
+      autocmd("BufEnter", {
+        callback = function()
+          vim.opt.formatoptions:remove({ "c", "r", "o" })
+        end,
+        group = general,
+        desc = "Disable New Line Comment",
+      })
+
+
+                        -- Aliases, because I can't type
+                        vim.cmd([[cabbrev W w]])
+                        vim.cmd([[cabbrev Wqa wqa]])
+
+                        -- Lsp hover border (is there a nix wat to do this?)
+                        vim.o.winborder = 'rounded'
+
+                        -- LSP Restart keymap
+                        vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" })
+
+                        -- Visual on yanking (bet there is nixvim way to add autogroups)
+                        vim.api.nvim_create_autocmd("TextYankPost", {
+                          desc = "Highlight when yanking (copying) text",
+                          group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+                          callback = function()
+                            vim.highlight.on_yank()
+                          end,
+                        })
     '';
   };
 }

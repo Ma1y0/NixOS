@@ -1,0 +1,212 @@
+Module                  Size  Used by
+xt_MASQUERADE          16384  2
+xt_mark                12288  2
+nft_chain_nat          12288  2
+nf_nat                 61440  2 nft_chain_nat,xt_MASQUERADE
+tun                    73728  2
+sd_mod                 86016  0
+ccm                    24576  9
+rfcomm                102400  19
+snd_seq_dummy          16384  0
+snd_hrtimer            16384  1
+snd_seq               118784  7 snd_seq_dummy
+snd_seq_device         20480  1 snd_seq
+af_packet              65536  6
+uhid                   28672  1
+cmac                   16384  3
+algif_hash             16384  1
+algif_skcipher         12288  1
+af_alg                 32768  6 algif_hash,algif_skcipher
+bnep                   28672  2
+nls_iso8859_1          12288  1
+nls_cp437              16384  1
+vfat                   28672  1
+fat                   114688  1 vfat
+amdgpu              16023552  24
+snd_sof_amd_acp70      16384  0
+snd_sof_amd_acp63      16384  0
+snd_sof_amd_vangogh    16384  0
+snd_sof_amd_rembrandt    16384  0
+snd_sof_amd_renoir     16384  0
+snd_sof_amd_acp        73728  5 snd_sof_amd_acp70,snd_sof_amd_rembrandt,snd_sof_amd_vangogh,snd_sof_amd_acp63,snd_sof_amd_renoir
+snd_sof_pci            24576  5 snd_sof_amd_acp70,snd_sof_amd_rembrandt,snd_sof_amd_vangogh,snd_sof_amd_acp63,snd_sof_amd_renoir
+snd_sof_xtensa_dsp     16384  1 snd_sof_amd_acp
+iwlmvm                630784  0
+snd_sof               499712  2 snd_sof_amd_acp,snd_sof_pci
+snd_sof_utils          16384  1 snd_sof
+snd_pci_ps             32768  0
+snd_soc_acpi_amd_match    12288  3 snd_sof_amd_acp70,snd_sof_amd_acp63,snd_pci_ps
+snd_amd_sdw_acpi       16384  2 snd_sof_amd_acp,snd_pci_ps
+soundwire_amd          49152  2 snd_sof_amd_acp,snd_pci_ps
+soundwire_generic_allocation    20480  1 soundwire_amd
+mac80211             1695744  1 iwlmvm
+soundwire_bus        1208320  2 soundwire_generic_allocation,soundwire_amd
+snd_hda_codec_alc269   143360  1
+snd_soc_sdca           98304  1 soundwire_bus
+snd_hda_scodec_component    20480  1 snd_hda_codec_alc269
+ptp                    57344  1 iwlmvm
+snd_hda_codec_realtek_lib    61440  1 snd_hda_codec_alc269
+intel_rapl_msr         20480  0
+snd_hda_codec_atihdmi    20480  1
+pps_core               32768  1 ptp
+snd_hda_codec_hdmi     61440  1 snd_hda_codec_atihdmi
+snd_hda_codec_generic   114688  2 snd_hda_codec_realtek_lib,snd_hda_codec_alc269
+btusb                  86016  0
+libarc4                12288  1 mac80211
+btrtl                  36864  1 btusb
+snd_soc_core          438272  3 snd_sof,snd_soc_sdca,soundwire_amd
+btintel                73728  1 btusb
+snd_compress           36864  1 snd_soc_core
+ac97_bus               12288  1 snd_soc_core
+amdxcp                 12288  1 amdgpu
+btmtk                  32768  1 btusb
+drm_panel_backlight_quirks    12288  1 amdgpu
+snd_hda_intel          69632  2
+ee1004                 16384  0
+snd_pcm_dmaengine      20480  1 snd_soc_core
+btbcm                  28672  1 btusb
+gpu_sched              69632  1 amdgpu
+iwlwifi               589824  1 iwlmvm
+wmi_bmof               12288  0
+drm_buddy              32768  1 amdgpu
+edac_mce_amd           40960  0
+snd_rpl_pci_acp6x      16384  0
+uvcvideo              188416  1
+snd_hda_codec         221184  6 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec_realtek_lib,snd_hda_codec_alc269,snd_hda_codec_atihdmi
+edac_core             114688  0
+drm_exec               16384  1 amdgpu
+bluetooth            1105920  54 btrtl,btmtk,btintel,btbcm,bnep,btusb,rfcomm
+acer_wmi               45056  0
+drm_suballoc_helper    16384  1 amdgpu
+snd_acp_pci            12288  0
+videobuf2_vmalloc      20480  1 uvcvideo
+snd_hda_core          147456  7 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_codec_realtek_lib,snd_hda_codec_alc269,snd_hda_codec_atihdmi
+amd_atl                57344  1
+snd_amd_acpi_mach      12288  1 snd_acp_pci
+platform_profile       24576  1 acer_wmi
+sparse_keymap          12288  1 acer_wmi
+uvc                    12288  1 uvcvideo
+drm_ttm_helper         20480  2 amdgpu
+intel_rapl_common      53248  1 intel_rapl_msr
+videobuf2_memops       16384  1 videobuf2_vmalloc
+snd_intel_dspcfg       45056  2 snd_hda_intel,snd_sof
+r8169                 143360  0
+snd_acp_legacy_common    20480  1 snd_acp_pci
+polyval_clmulni        12288  0
+snd_intel_sdw_acpi     16384  1 snd_intel_dspcfg
+videobuf2_v4l2         40960  1 uvcvideo
+ttm                   126976  2 amdgpu,drm_ttm_helper
+ecdh_generic           20480  2 bluetooth
+ghash_clmulni_intel    12288  0
+aesni_intel            98304  9
+videobuf2_common       94208  4 videobuf2_vmalloc,videobuf2_v4l2,uvcvideo,videobuf2_memops
+snd_hwdep              24576  1 snd_hda_codec
+snd_pci_acp6x          20480  0
+cfg80211             1454080  3 iwlmvm,iwlwifi,mac80211
+ecc                    49152  1 ecdh_generic
+drm_display_helper    323584  1 amdgpu
+rapl                   24576  0
+realtek                57344  1
+sp5100_tco             20480  0
+mdio_devres            12288  1 r8169
+snd_pci_acp5x          20480  0
+snd_pcm               200704  15 snd_sof_amd_acp,snd_hda_codec_hdmi,snd_pci_acp6x,snd_acp_legacy_common,snd_hda_intel,snd_hda_codec,snd_sof,snd_soc_sdca,snd_compress,snd_soc_core,snd_sof_utils,soundwire_amd,snd_hda_core,snd_pci_ps,snd_pcm_dmaengine
+cec                    81920  2 drm_display_helper,amdgpu
+i2c_algo_bit           24576  1 amdgpu
+videodev              401408  2 videobuf2_v4l2,uvcvideo
+of_mdio                24576  1 mdio_devres
+wdat_wdt               20480  0
+snd_timer              57344  3 snd_seq,snd_hrtimer,snd_pcm
+snd_rn_pci_acp3x       24576  0
+i2c_piix4              36864  0
+mc                     90112  5 videodev,videobuf2_v4l2,uvcvideo,videobuf2_common
+snd_acp_config         24576  10 snd_rn_pci_acp3x,snd_sof_amd_acp70,snd_pci_acp6x,snd_pci_acp5x,snd_sof_amd_rembrandt,snd_sof_amd_vangogh,snd_sof_amd_acp63,snd_acp_pci,snd_pci_ps,snd_sof_amd_renoir
+watchdog               49152  2 sp5100_tco,wdat_wdt
+fixed_phy              16384  1 of_mdio
+snd_soc_acpi           16384  5 snd_sof_amd_acp,snd_acp_legacy_common,snd_acp_config,snd_amd_acpi_mach,snd_pci_ps
+fwnode_mdio            16384  1 of_mdio
+evdev                  32768  24
+snd                   159744  21 snd_hda_codec_generic,snd_seq,snd_seq_device,snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_sof,snd_soc_sdca,snd_timer,snd_hda_codec_realtek_lib,snd_compress,snd_hda_codec_alc269,snd_soc_core,snd_pcm
+k10temp                12288  0
+i2c_smbus              20480  1 i2c_piix4
+mousedev               28672  0
+soundcore              20480  1 snd
+rfkill                 45056  10 acer_wmi,iwlmvm,bluetooth,cfg80211
+snd_pci_acp3x          20480  0
+joydev                 28672  0
+libphy                188416  6 r8169,mdio_devres,fwnode_mdio,of_mdio,realtek,fixed_phy
+mdio_bus               65536  4 r8169,libphy,of_mdio,realtek
+thermal                28672  0
+rtc_cmos               28672  1
+video                  81920  2 acer_wmi,amdgpu
+acer_wireless          16384  0
+xt_conntrack           12288  2
+input_leds             16384  0
+nf_conntrack          200704  3 xt_conntrack,nf_nat,xt_MASQUERADE
+led_class              24576  6 snd_hda_codec_generic,videodev,input_leds,libphy,acer_wmi,iwlmvm
+mac_hid                16384  0
+nf_defrag_ipv6         24576  1 nf_conntrack
+i2c_hid_acpi           12288  0
+tiny_power_button      12288  0
+battery                28672  0
+nf_defrag_ipv4         12288  1 nf_conntrack
+tpm_crb                28672  0
+i2c_hid                45056  1 i2c_hid_acpi
+button                 28672  0
+ac                     16384  0
+tpm_tis                16384  0
+wmi                    36864  3 video,acer_wmi,wmi_bmof
+tpm_tis_core           36864  1 tpm_tis
+serio_raw              20480  0
+ip6t_rpfilter          12288  1
+ipt_rpfilter           12288  1
+xt_pkttype             12288  2
+xt_LOG                 16384  2
+nf_log_syslog          24576  2
+xt_tcpudp              16384  3
+nft_compat             28672  15
+x_tables               53248  9 xt_conntrack,ip6t_rpfilter,nft_compat,xt_LOG,xt_tcpudp,ipt_rpfilter,xt_pkttype,xt_MASQUERADE,xt_mark
+nf_tables             401408  215 nft_compat,nft_chain_nat
+sch_fq_codel           28672  3
+uinput                 24576  1
+loop                   49152  0
+kvm_amd               245760  0
+ccp                   192512  1 kvm_amd
+sha1                   16384  1 ccp
+kvm                  1413120  1 kvm_amd
+irqbypass              16384  1 kvm
+fuse                  258048  3
+efi_pstore             16384  0
+configfs               69632  1
+nfnetlink              24576  3 nft_compat,nf_tables
+efivarfs               40960  1
+tpm                   122880  3 tpm_tis,tpm_crb,tpm_tis_core
+rng_core               24576  2 ccp,tpm
+dmi_sysfs              28672  0
+autofs4                65536  0
+ext4                 1163264  1
+crc16                  12288  3 bluetooth,amdgpu,ext4
+mbcache                20480  1 ext4
+jbd2                  200704  1 ext4
+hid_generic            12288  0
+usbhid                 90112  0
+hid                   286720  5 i2c_hid,usbhid,snd_soc_sdca,hid_generic,uhid
+ahci                   57344  0
+atkbd                  40960  0
+libahci                69632  1 ahci
+libps2                 24576  1 atkbd
+vivaldi_fmap           12288  1 atkbd
+libata                491520  2 libahci,ahci
+nvme                   73728  3
+xhci_pci               28672  0
+nvme_core             270336  4 nvme
+xhci_hcd              425984  1 xhci_pci
+i8042                  57344  1 acer_wmi
+scsi_mod              339968  2 sd_mod,libata
+serio                  32768  4 serio_raw,atkbd,i8042
+nvme_keyring           20480  1 nvme_core
+nvme_auth              32768  1 nvme_core
+scsi_common            16384  3 scsi_mod,sd_mod,libata
+hkdf                   12288  1 nvme_auth
+dm_mod                229376  0
+dax                    53248  1 dm_mod
